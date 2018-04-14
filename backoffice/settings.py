@@ -37,7 +37,7 @@ SECRET_KEY = '1igww7n^2_6ma$*tru3k_ukdft3d04=5*%2&)=eonw#6a_5b1j'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['nearbyrestapi.herokuapp.com']
 
 
 # Application definition
