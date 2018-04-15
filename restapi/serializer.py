@@ -145,7 +145,7 @@ class CategoriaUsuarioSerializer(serializers.ModelSerializer):
 class CategoriaUsuarioListSerializer(serializers.ModelSerializer):
     class Meta:
         model = CategoriaUsuario
-        fields = ('categoria',)
+        fields = ('categoria', 'usuario')
         depth = 2
 
 class SubcategoriaUsuarioSerializer(serializers.ModelSerializer):
