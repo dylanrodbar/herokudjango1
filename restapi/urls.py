@@ -78,6 +78,7 @@ urlpatterns = [
     url(r'^api/categoriausuario/(?P<pk>\d+)/detalle', views.CategoriaUsuarioDetailAPIView.as_view(), name="detalle"),
     url(r'^api/categoriausuario/(?P<pk>\d+)/editar', views.CategoriaUsuarioUpdateAPIView.as_view(), name="editar"),
     url(r'^api/categoriausuario/(?P<pk>\d+)/eliminar', views.CategoriaUsuarioDestroyAPIView.as_view(), name="eliminar"),
+    url(r'^api/categoriausuario/id', views.CategoriaUsuarioListIdAPIView.as_view(), name="listar"),
 
     url(r'^api/subcategoriausuario/listar', views.SubcategoriaUsuarioListAPIView.as_view(), name="listar"),
     url(r'^api/subcategoriausuario/crear', views.SubcategoriaUsuarioCreateAPIView.as_view(), name="crear"),

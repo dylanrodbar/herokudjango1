@@ -450,7 +450,7 @@ class CategoriaUsuarioListAPIView(ListAPIView):
 
 
 #restapi/api/categoriausuario/id
-class CategoriaUsuarioListAPIView(ListAPIView):
+class CategoriaUsuarioListIdAPIView(ListAPIView):
     queryset = CategoriaUsuario.objects.all()
     serializer_class = CategoriaUsuarioListSerializer
 
