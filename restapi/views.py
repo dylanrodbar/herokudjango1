@@ -88,7 +88,7 @@ class SubcategoriaCreateAPIView(CreateAPIView):
 
 #restapi/api/subcategorias/listar
 class SubcategoriaListAPIView(ListAPIView):
-    queryset = User.objects.all()
+    queryset = Subcategoria.objects.all()
     serializer_class = SubcategoriaSerializer
 
 #restapi/api/subcategorias/pk/detalle
