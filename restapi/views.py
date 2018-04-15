@@ -448,6 +448,21 @@ class CategoriaUsuarioListAPIView(ListAPIView):
     queryset = CategoriaUsuario.objects.all()
     serializer_class = CategoriaUsuarioListSerializer
 
+
+#restapi/api/categoriausuario/id
+class CategoriaUsuarioListAPIView(ListAPIView):
+    queryset = CategoriaUsuario.objects.all()
+    serializer_class = CategoriaUsuarioListSerializer
+
+    def get_queryset(self):
+        idUsuario = self.request.query_params.get('usuario', None)
+
+        usuL = Usuario.objects.filter(pk=idUsuario)
+
+        usu = usuL.first()
+        return CategoriaUsuario.objects.filter(usuario=usu)
+
+
 #restapi/api/categoriausuario/pk/detalle
 class CategoriaUsuarioDetailAPIView(RetrieveAPIView):
     queryset = CategoriaUsuario.objects.all()
