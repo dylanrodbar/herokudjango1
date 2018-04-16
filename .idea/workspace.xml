@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="29940cc0-16ad-445a-888d-ba5d4c883434" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backoffice/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/backoffice/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restapi/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/restapi/migrations/0002_auto_20180414_0110.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/restapi/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restapi/serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/serializer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restapi/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restapi/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/views.py" afterDir="false" />
-    </list>
+    <list default="true" id="29940cc0-16ad-445a-888d-ba5d4c883434" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -55,11 +44,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/restapi/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
-              <caret line="76" column="46" selection-start-line="76" selection-start-column="46" selection-end-line="76" selection-end-column="46" />
+            <state relative-caret-position="243">
+              <caret line="77" column="49" lean-forward="true" selection-start-line="77" selection-start-column="49" selection-end-line="77" selection-end-column="49" />
               <folding>
                 <element signature="e#15#43#0" expanded="true" />
               </folding>
@@ -67,11 +56,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/backoffice/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="213">
-              <caret line="24" column="11" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="34" />
+            <state relative-caret-position="196">
+              <caret line="23" column="33" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -128,9 +117,9 @@
       <find>UserGetSerializer</find>
       <find>UserGetToken</find>
       <find>EventoSerializer</find>
-      <find>ImageField</find>
       <find>latitud</find>
       <find>queryser</find>
+      <find>ImageField</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -238,7 +227,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="12" weight="0.32838285" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
@@ -543,13 +531,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backoffice/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="24" column="11" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/restapi/serializer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="124">
@@ -589,11 +570,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/restapi/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="76" column="46" selection-start-line="76" selection-start-column="46" selection-end-line="76" selection-end-column="46" />
+        <state relative-caret-position="243">
+          <caret line="77" column="49" lean-forward="true" selection-start-line="77" selection-start-column="49" selection-end-line="77" selection-end-column="49" />
           <folding>
             <element signature="e#15#43#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backoffice/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="23" column="33" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
         </state>
       </provider>
     </entry>
