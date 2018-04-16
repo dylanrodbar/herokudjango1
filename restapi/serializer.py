@@ -1,11 +1,24 @@
 from rest_framework import serializers
 from .models import *
+from rest_framework.authtoken.models import Token
 
 class UsuarioSerializer(serializers.ModelSerializer):
     class Meta:
         model = Usuario
-        fields = ('correo', 'contrasena', 'fecha_nacimiento', 'genero', 'foto')
+        fields = ('id', 'nombre', 'fecha_nacimiento', 'genero', 'foto')
 
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('username', 'first_name')
+
+
+class UserGetSerializer(serializers.ModelSerializer):
+    usuario = UsuarioSerializer(read_only=False)
+    class Meta:
+        model = User
+        fields = '__all__'
 
 class CategoriaSerializer(serializers.ModelSerializer):
     class Meta:
@@ -74,7 +87,7 @@ class EventoListSerializer(serializers.ModelSerializer):
     comentarios = ComentarioListSerializer(many=True, read_only=False)
     class Meta:
         model = Evento
-        fields = ('fecha', 'lugar', 'descripcion', 'imagen', 'calificacion', 'persona', 'asistentes', 'comentarios')
+        fields = ('categoria','fecha', 'lugar', 'descripcion', 'imagen', 'calificacion', 'persona', 'asistentes', 'comentarios')
         depth=2
 
 class EventoSerializer(serializers.ModelSerializer):
@@ -93,6 +106,7 @@ class EventoXGrupoListSerializer(serializers.ModelSerializer):
 
 
 class UsuarioXGrupoListSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = UsuarioXGrupo
         fields = ('usuario',)
@@ -117,7 +131,7 @@ class GrupoListSerializer(serializers.ModelSerializer):
     usuariosgrupo = UsuarioXGrupoListSerializer(many=True, read_only=False)
     class Meta:
         model = Grupo
-        fields = ('nombre', 'descripcion', 'foto', 'eventosgrupo', 'usuariosgrupo')
+        fields = ('nombre', 'descripcion', 'foto', 'eventosgrupo', 'usuariosgrupo', 'categoria')
         depth = 2
 
 
@@ -125,6 +139,7 @@ class GrupoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Grupo
         fields = '__all__'
+
 
 
     
@@ -166,10 +181,16 @@ class UsuarioListSerializer(serializers.ModelSerializer):
     miembroaventos = UsuarioXEventoAsistenteListEventSerializer(many=True, read_only = False)
     categoriasusuario = CategoriaUsuarioListSerializer(many=True, read_only=False)
     subcategoriasusuario = SubcategoriaUsuarioListSerializer(many=True, read_only=False)
+    grupos = GrupoListSerializer(many=True, read_only=False)
     
     class Meta:
         model = Usuario
-        fields = ('correo', 'contrasena', 'fecha_nacimiento', 'genero', 'foto',  'eventos', 'miembroaventos', 'categoriasusuario', 'subcategoriasusuario')
+        fields = ('id', 'nombre', 'fecha_nacimiento', 'genero', 'foto',  'eventos', 'miembroaventos', 'categoriasusuario', 'subcategoriasusuario', 'grupos', 'user')
+        depth = 1
 
 
 
+class TokenSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Token
+        fields = '__all__'

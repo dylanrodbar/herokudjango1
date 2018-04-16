@@ -1,5 +1,14 @@
+from django.db.models import Q
 from django.shortcuts import render
+from requests import Response
+from rest_framework import serializers
 from rest_framework import viewsets
+from rest_framework.decorators import api_view
+from rest_framework.fields import CurrentUserDefault
+from rest_framework.authtoken.models import Token
+
+import geopy.distance
+
 from rest_framework.generics import(
     ListAPIView,
     UpdateAPIView,
@@ -7,12 +16,56 @@ from rest_framework.generics import(
     DestroyAPIView,
     CreateAPIView
 )
+from rest_framework.views import APIView
+
 from .serializer import *
 from .models import *
 
 
+#####
+def ordenar(matriz):
+    matriz.sort(key=lambda row: row[1:], reverse=False)
+    nuevaMatriz = []
+    for i in matriz:
+        nuevaMatriz.append(i[0])
+    return nuevaMatriz
+
+#####
+
+
+
+#restapi/api/user/get
+class UserGetAPIView(ListAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserGetSerializer
+
+    def get_queryset(self):
+        idUsuario = self.request.query_params.get('user', None)
+        #usuarioE = Usuario.objects.filter(pk=idUsuario)
+        #usuarioEE = usuarioE.first()
+        return User.objects.filter(pk=idUsuario)
+
+
+class UserGetTokenAPIView(ListAPIView):
+    queryset = User.objects.all()
+    serializer_class = TokenSerializer
+
+    def get_queryset(self):
+        tok = self.request.query_params.get('user', None)
+        print(tok)
+        user = Token.objects.filter(key=tok)
+        #print(user.token)
+        #print(user)
+        #usuarioE = Usuario.objects.filter(pk=idUsuario)
+        #usuarioEE = usuarioE.first()
+        return user
+
+
+
+
 #CRUD Usuario
 ##################################################################
+
 
 
 #restapi/api/usuarios/crear
@@ -24,6 +77,12 @@ class UsuarioCreateAPIView(CreateAPIView):
 class UsuarioListAPIView(ListAPIView):
     queryset = Usuario.objects.all()
     serializer_class = UsuarioListSerializer
+
+# restapi/api/usuarios/listar
+class UsuarioListAPIView(ListAPIView):
+    queryset = Usuario.objects.all()
+    serializer_class = UsuarioListSerializer
+
 
 #restapi/api/usuarios/pk/detalle
 class UsuarioDetailAPIView(RetrieveAPIView):
@@ -205,22 +264,68 @@ class EventoDestroyAPIView(DestroyAPIView):
 #restapi/api/eventoscerca
 #Obtiene los eventos más cercanos, dadas las coordenadas
 class EventoCercaCreateAPIView(ListAPIView):
-    #queryset = Evento.objects.all()
     serializer_class = EventoSerializer
-
+    print("HOLISSS")
     def get_queryset(self):
         lati = self.request.query_params.get('latitud', None)
         longi = self.request.query_params.get('longitud', None)
 
         eventos = Evento.objects.all()
         cercanos = []
-        for e in eventos:
-            print(float(lati) - float(e.latitud))
-            print(float(longi) - float(e.longitud))
-            cercanos.append(e)
 
-        #Aquí se van a poner los eventos más cercanos
-        return cercanos
+        for e in eventos:
+            lat = e.latitud
+            lon = e.longitud
+            coords_1 = (lati, longi)
+            coords_2 = (lat, lon)
+            distancia = geopy.distance.vincenty(coords_1, coords_2).km
+            temporal = [e, distancia]
+            cercanos.append(temporal)
+        cer = ordenar(cercanos)
+
+        listaIndices = []
+        for i in cer:
+            listaIndices.append(i.id)
+
+
+        consulta = list(Evento.objects.filter(pk__in=listaIndices))
+        consulta.sort(key=lambda t: listaIndices.index(t.pk))
+        return consulta
+
+
+
+#restapi/api/eventoscerca/categoria
+#Obtiene los eventos más cercanos, dadas las coordenadas
+class EventoCercaCategoriaCreateAPIView(ListAPIView):
+    serializer_class = EventoSerializer
+    def get_queryset(self):
+        lati = self.request.query_params.get('latitud', None)
+        longi = self.request.query_params.get('longitud', None)
+        cate = self.request.query_params.get('categoria', None)
+
+
+        categorias = Categoria.objects.filter(nombre=cate)
+        categoriasQ = categorias.first()
+        eventos = Evento.objects.filter(categoria=categoriasQ)
+        cercanos = []
+
+        for e in eventos:
+            lat = e.latitud
+            lon = e.longitud
+            coords_1 = (lati, longi)
+            coords_2 = (lat, lon)
+            distancia = geopy.distance.vincenty(coords_1, coords_2).km
+            temporal = [e, distancia]
+            cercanos.append(temporal)
+        cer = ordenar(cercanos)
+
+        listaIndices = []
+        for i in cer:
+            listaIndices.append(i.id)
+
+        consulta = list(Evento.objects.filter(pk__in=listaIndices))
+        consulta.sort(key=lambda t: listaIndices.index(t.pk))
+        return consulta
 
 
 ##################################################################
@@ -230,7 +335,7 @@ class EventoCercaCreateAPIView(ListAPIView):
 #CRUD Grupo
 ##################################################################
 
-#restapi/api/grupos/crear
+#restapi/api/s/crear
 class GrupoCreateAPIView(CreateAPIView):
     queryset = Grupo.objects.all()
     serializer_class = GrupoSerializer
@@ -239,6 +344,35 @@ class GrupoCreateAPIView(CreateAPIView):
 class GrupoListAPIView(ListAPIView):
     queryset = Grupo.objects.all()
     serializer_class = GrupoListSerializer
+
+
+#restapi/api/grupos/categoria
+class GrupoListCategoriaAPIView(ListAPIView):
+    queryset = Grupo.objects.all()
+    serializer_class = GrupoListSerializer
+
+    def get_queryset(self):
+        categoria = self.request.query_params.get('categoria', None)
+        cate = Categoria.objects.filter(nombre=categoria)
+        cateO = cate.first()
+        grupo = Grupo.objects.filter(categoria=cateO)
+        #usuarioEE = usuarioE.first()
+        #return UsuarioXEventoAsistente.objects.filter(estado = estadoE)
+        #return UsuarioXEventoAsistente.objects.filter(estado=estadoE, usuario=usuarioEE)
+        return grupo
+
+
+#restapi/api/eventos/categoria
+class EventoListCategoriaAPIView(ListAPIView):
+    queryset = Evento.objects.all()
+    serializer_class = EventoListSerializer
+
+    def get_queryset(self):
+        categoria = self.request.query_params.get('categoria', None)
+        cate = Categoria.objects.filter(nombre=categoria)
+        cateO = cate.first()
+        evento = Evento.objects.filter(categoria=cateO)
+        return evento
 
 #restapi/api/grupos/pk/detalle
 class GrupoDetailAPIView(RetrieveAPIView):
@@ -516,3 +650,11 @@ class SubcategoriaUsuarioDestroyAPIView(DestroyAPIView):
 
 
 ##################################################################
+
+
+
+
+class CurrentUserView(APIView):
+    def get(self, request):
+        serializer = UserSerializer(request.user)
+        return Response(serializer.data)

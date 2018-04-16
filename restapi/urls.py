@@ -5,10 +5,11 @@ from . import views
 app_name = "restapi"
 
 #router = routers.DefaultRouter()
-#router.register(r'usuarios', views.UsuarioViewSet)
+#router.register(r'current', views.UserViewSet, base_name='api')
 
 urlpatterns = [
     #url(r'^api/', include(router.urls)),
+
     url(r'^api/usuarios/listar', views.UsuarioListAPIView.as_view(), name="listar"),
     url(r'^api/usuarios/crear', views.UsuarioCreateAPIView.as_view(), name="crear"),
     url(r'^api/usuarios/(?P<pk>\d+)/detalle', views.UsuarioDetailAPIView.as_view(), name="detalle"),
@@ -92,6 +93,17 @@ urlpatterns = [
 
     url(r'^api/eventocerca', views.EventoCercaCreateAPIView.as_view(),name="eventocer"),
 
+    url(r'^api/ecercacategoria', views.EventoCercaCategoriaCreateAPIView.as_view(), name="asistio"),
+
     url(r'^api/usuarioevento/obtenerEvento', views.UsuarioXEventoAsistenteEventosObtenerAPIView.as_view(),name="eventoobtener"),
+    url(r'^api/user/get', views.UserGetAPIView.as_view(),name="eventoobtener"),
+
+    url(r'^api/usuarioactual', views.UserGetTokenAPIView.as_view(),name="eventoobtener"),
+
+    url(r'^api/grupos/categoria', views.GrupoListCategoriaAPIView.as_view(),name="eventoobtener"),
+
+    url(r'^api/eventos/categoria', views.EventoListCategoriaAPIView.as_view(),name="eventoobtener"),
+
+
 
 ]
