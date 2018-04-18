@@ -132,7 +132,7 @@ class GrupoListSerializer(serializers.ModelSerializer):
     usuariosgrupo = UsuarioXGrupoListSerializer(many=True, read_only=False)
     class Meta:
         model = Grupo
-        fields = ('nombre', 'descripcion', 'foto', 'eventosgrupo', 'usuariosgrupo', 'categoria')
+        fields = ('nombre', 'descripcion', 'eventosgrupo', 'usuariosgrupo', 'categoria')
         depth = 2
 
 
