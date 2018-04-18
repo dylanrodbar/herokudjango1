@@ -47,9 +47,10 @@ class UsuarioXEventoAsistenteListEventSerializer(serializers.ModelSerializer):
         depth = 1
 
 class UsuarioXEventoAsistenteListSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = UsuarioXEventoAsistente
-        fields = ('id','usuario', 'estado')
+        fields = ('id','usuario', 'estado', 'evento')
         depth = 2
 
 class UsuarioXEventoAsistenteSerializer(serializers.ModelSerializer):
