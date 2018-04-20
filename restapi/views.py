@@ -211,7 +211,7 @@ class ComentarioCreateAPIView(CreateAPIView):
 #restapi/api/comentarios/listar
 class ComentarioListAPIView(ListAPIView):
     queryset = Comentario.objects.all()
-    serializer_class = ComentarioListSerializer
+    serializer_class = ComentarioSerializer
 
 #restapi/api/comentarios/pk/detalle
 class ComentarioDetailAPIView(RetrieveAPIView):

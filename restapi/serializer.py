@@ -79,6 +79,7 @@ class ComentarioSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comentario
         fields = '__all__'
+        depth = 2
 
 
 
