@@ -297,7 +297,7 @@ class EventoCercaCreateAPIView(ListAPIView):
 #restapi/api/eventoscerca/categoria
 #Obtiene los eventos más cercanos, dadas las coordenadas
 class EventoCercaCategoriaCreateAPIView(ListAPIView):
-    serializer_class = EventoSerializer
+    serializer_class = EventoListSerializer
     def get_queryset(self):
         lati = self.request.query_params.get('latitud', None)
         longi = self.request.query_params.get('longitud', None)
