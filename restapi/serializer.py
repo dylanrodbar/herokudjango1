@@ -88,7 +88,7 @@ class EventoListSerializer(serializers.ModelSerializer):
     comentarios = ComentarioListSerializer(many=True, read_only=False)
     class Meta:
         model = Evento
-        fields = ('categoria','fecha', 'lugar', 'descripcion', 'imagen', 'calificacion', 'persona', 'asistentes', 'comentarios')
+        fields = ('latitud', 'longitud', 'categoria','fecha', 'lugar', 'descripcion', 'imagen', 'calificacion', 'persona', 'asistentes', 'comentarios')
         depth=2
 
 class EventoSerializer(serializers.ModelSerializer):

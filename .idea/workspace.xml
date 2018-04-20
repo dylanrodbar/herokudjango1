@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="29940cc0-16ad-445a-888d-ba5d4c883434" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restapi/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/restapi/serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/serializer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restapi/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,11 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/restapi/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6834">
-              <caret line="423" column="55" selection-start-line="423" selection-start-column="55" selection-end-line="423" selection-end-column="55" />
+            <state relative-caret-position="158">
+              <caret line="213" column="37" selection-start-line="213" selection-start-column="37" selection-end-line="213" selection-end-column="37" />
               <folding>
                 <element signature="e#0#30#0" expanded="true" />
               </folding>
@@ -30,8 +30,8 @@
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/restapi/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1513">
-              <caret line="91" column="17" selection-start-line="91" selection-start-column="17" selection-end-line="91" selection-end-column="17" />
+            <state relative-caret-position="124">
+              <caret line="40" column="26" selection-start-line="40" selection-start-column="15" selection-end-line="40" selection-end-column="26" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -51,7 +51,7 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/restapi/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
+            <state relative-caret-position="221">
               <caret line="18" column="23" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
               <folding>
                 <element signature="e#15#43#0" expanded="true" />
@@ -78,11 +78,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="serializer.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="serializer.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/restapi/serializer.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="192">
-              <caret line="66" column="21" selection-start-line="66" selection-start-column="21" selection-end-line="66" selection-end-column="21" />
+              <caret line="74" column="17" lean-forward="true" selection-start-line="74" selection-start-column="17" selection-end-line="74" selection-end-column="17" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -94,9 +94,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>get</find>
-      <find>UsuarioXGrupo</find>
-      <find>GrupoSErializer</find>
       <find>default</find>
       <find>GrupoListSerializer</find>
       <find>GrupoSerializer</find>
@@ -104,7 +101,6 @@
       <find>def</find>
       <find>Evento</find>
       <find>Grupo</find>
-      <find>EventoList</find>
       <find>EventoListCate</find>
       <find>Token.objects</find>
       <find>UserSerializer</find>
@@ -124,6 +120,10 @@
       <find>Asistir</find>
       <find>foto</find>
       <find>CategoriaListSeria</find>
+      <find>EventoList</find>
+      <find>comentari</find>
+      <find>comentarios</find>
+      <find>ComentarioList</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -134,9 +134,9 @@
       <list>
         <option value="$PROJECT_DIR$/backoffice/settings.py" />
         <option value="$PROJECT_DIR$/restapi/urls.py" />
-        <option value="$PROJECT_DIR$/restapi/views.py" />
         <option value="$PROJECT_DIR$/restapi/models.py" />
         <option value="$PROJECT_DIR$/restapi/serializer.py" />
+        <option value="$PROJECT_DIR$/restapi/views.py" />
       </list>
     </option>
   </component>
@@ -239,8 +239,8 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Python Console" order="9" />
       <window_info anchor="bottom" id="Run" order="4" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.26072606" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28517398" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.26072606" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28971255" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="2" />
       <window_info anchor="right" id="SciView" order="0" />
@@ -682,29 +682,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/restapi/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6834">
-          <caret line="423" column="55" selection-start-line="423" selection-start-column="55" selection-end-line="423" selection-end-column="55" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/restapi/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1513">
-          <caret line="91" column="17" selection-start-line="91" selection-start-column="17" selection-end-line="91" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/restapi/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
+        <state relative-caret-position="221">
           <caret line="18" column="23" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
           <folding>
             <element signature="e#15#43#0" expanded="true" />
@@ -712,12 +692,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/restapi/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="40" column="26" selection-start-line="40" selection-start-column="15" selection-end-line="40" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/restapi/serializer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
-          <caret line="66" column="21" selection-start-line="66" selection-start-column="21" selection-end-line="66" selection-end-column="21" />
+          <caret line="74" column="17" lean-forward="true" selection-start-line="74" selection-start-column="17" selection-end-line="74" selection-end-column="17" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/restapi/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="213" column="37" selection-start-line="213" selection-start-column="37" selection-end-line="213" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
           </folding>
         </state>
       </provider>
