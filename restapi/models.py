@@ -13,8 +13,6 @@ from django.dispatch import receiver
 
 # Con este usuario, se autenticará dentro del api
 class Usuario(models.Model):
-    # correo = models.TextField(max_length=30)
-    # contrasena = models.TextField(max_length=30)
     fecha_nacimiento = models.DateField(auto_now=False, default="2017-01-01")
     genero = models.TextField(max_length=20, null=True, default="")
     foto = models.TextField(max_length=1000)
