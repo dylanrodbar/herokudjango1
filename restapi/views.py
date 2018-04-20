@@ -323,7 +323,7 @@ class EventoCercaCategoriaCreateAPIView(ListAPIView):
         for i in cer:
             listaIndices.append(i.id)
 
-        consulta = list(Evento.objects.filter(pk__in=listaIndices, level__lte=2))
+        consulta = list(Evento.objects.filter(pk__in=listaIndices))
         consulta.sort(key=lambda t: listaIndices.index(t.pk))
         return consulta
 
