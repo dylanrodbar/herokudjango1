@@ -211,7 +211,7 @@ class ComentarioCreateAPIView(CreateAPIView):
 #restapi/api/comentarios/listar
 class ComentarioListAPIView(ListAPIView):
     queryset = Comentario.objects.all()
-    serializer_class = ComentarioSerializer
+    serializer_class = ComentarioListSerializer
 
 #restapi/api/comentarios/pk/detalle
 class ComentarioDetailAPIView(RetrieveAPIView):
@@ -297,7 +297,7 @@ class EventoCercaCreateAPIView(ListAPIView):
 #restapi/api/eventoscerca/categoria
 #Obtiene los eventos más cercanos, dadas las coordenadas
 class EventoCercaCategoriaCreateAPIView(ListAPIView):
-    serializer_class = EventoListSerializer
+    serializer_class = EventoSerializer
     def get_queryset(self):
         lati = self.request.query_params.get('latitud', None)
         longi = self.request.query_params.get('longitud', None)
