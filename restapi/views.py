@@ -355,7 +355,7 @@ class GrupoListCategoriaAPIView(ListAPIView):
         categoria = self.request.query_params.get('categoria', None)
         cate = Categoria.objects.filter(nombre=categoria)
         cateO = cate.first()
-        grupo = Grupo.objects.filter(categoria=cateO)
+        grupo = Grupo.objects.all()
         #usuarioEE = usuarioE.first()
         #return UsuarioXEventoAsistente.objects.filter(estado = estadoE)
         #return UsuarioXEventoAsistente.objects.filter(estado=estadoE, usuario=usuarioEE)
