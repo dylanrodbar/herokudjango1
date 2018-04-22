@@ -72,7 +72,7 @@ class ComentarioListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comentario
         fields = '__all__'
-        depth = 2
+
 
 
 class ComentarioSerializer(serializers.ModelSerializer):
