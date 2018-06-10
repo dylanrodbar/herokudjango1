@@ -56,10 +56,11 @@ class EditUsuarioAPIView(ListAPIView):
         foto = self.request.query_params.get('foto', None)
         nombre = self.request.query_params.get('nombre', None)
 
-        usuario = Usuario.objects.filter(pk=idUsuario).first()
-        usuario.foto = foto
-        usuario.nombre = nombre
-        usuario.save()
+        usuario = Usuario.objects.filter(pk=idUsuario)
+        usuario.update(foto=foto, nombre=nombre)
+        #usuario.foto = foto
+        #usuario.nombre = nombre
+        #usuario.save()
         #usuarioE = Usuario.objects.filter(pk=idUsuario)
         #usuarioEE = usuarioE.first()
         return usuario
