@@ -48,7 +48,7 @@ class UserGetAPIView(ListAPIView):
 
 #restapi/api/editusuario
 class EditUsuarioAPIView(ListAPIView):
-    queryset = User.objects.all()
+    queryset = Usuario.objects.all()
     serializer_class = UsuarioSerializer
 
     def get_queryset(self):
@@ -56,7 +56,7 @@ class EditUsuarioAPIView(ListAPIView):
         foto = self.request.query_params.get('foto', None)
         nombre = self.request.query_params.get('nombre', None)
 
-        usuario = Usuario.objects.get(pk=idUsuario)
+        usuario = Usuario.objects.filter(pk=idUsuario)
         usuario.foto = foto
         usuario.nombre = nombre
         usuario.save()
