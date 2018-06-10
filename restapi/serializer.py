@@ -71,7 +71,8 @@ class CategoriaListSerializer(serializers.ModelSerializer):
 class ComentarioListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comentario
-        fields = ('id', 'contenido')
+        fields = ('id', 'contenido', 'autor')
+        depth = 2
 
 
 
