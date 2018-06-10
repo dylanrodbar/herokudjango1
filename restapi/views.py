@@ -53,8 +53,8 @@ class EditUsuarioAPIView(ListAPIView):
 
     def get_queryset(self):
         idUsuario = self.request.query_params.get('user', None)
-        foto = self.request.query_params_params.get('foto', None)
-        nombre = self.request.query_params_params.get('nombre', None)
+        foto = self.request.query_params.get('foto', None)
+        nombre = self.request.query_params.get('nombre', None)
 
         usuario = Usuario.objects.filter(pk=idUsuario)
         usuario.foto = foto
