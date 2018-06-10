@@ -71,7 +71,7 @@ class CategoriaListSerializer(serializers.ModelSerializer):
 class ComentarioListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comentario
-        fields = '__all__'
+        fields = ('id', 'contenido', 'autorC')
 
 
 
