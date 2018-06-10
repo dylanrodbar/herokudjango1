@@ -46,7 +46,7 @@ class UserGetAPIView(ListAPIView):
         return User.objects.filter(pk=idUsuario)
 
 
-#restapi/api/api/editusuario
+#restapi/api/editusuario
 class EditUsuarioAPIView(ListAPIView):
     queryset = User.objects.all()
     serializer_class = UsuarioSerializer

@@ -98,6 +98,9 @@ urlpatterns = [
     url(r'^api/usuarioevento/obtenerEvento', views.UsuarioXEventoAsistenteEventosObtenerAPIView.as_view(),name="eventoobtener"),
     url(r'^api/user/get', views.UserGetAPIView.as_view(),name="eventoobtener"),
 
+    url(r'^api/editusuario', views.EditUsuarioAPIView.as_view(),name="editUsuario"),
+
+    
     url(r'^api/usuarioactual', views.UserGetTokenAPIView.as_view(),name="eventoobtener"),
 
     url(r'^api/grupos/categoria', views.GrupoListCategoriaAPIView.as_view(),name="eventoobtener"),
