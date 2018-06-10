@@ -307,6 +307,7 @@ class EventoCercaCategoriaCreateAPIView(ListAPIView):
         categorias = Categoria.objects.filter(nombre=cate)
         categoriasQ = categorias.first()
         eventos = Evento.objects.filter(categoria=categoriasQ)
+        """
         cercanos = []
 
         for e in eventos:
@@ -325,7 +326,8 @@ class EventoCercaCategoriaCreateAPIView(ListAPIView):
 
         consulta = list(Evento.objects.filter(pk__in=listaIndices))
         consulta.sort(key=lambda t: listaIndices.index(t.pk))
-        return consulta
+        """
+        return eventos
 
 
 ##################################################################
