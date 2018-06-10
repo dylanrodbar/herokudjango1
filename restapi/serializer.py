@@ -69,6 +69,7 @@ class CategoriaListSerializer(serializers.ModelSerializer):
 ##
 
 class ComentarioListSerializer(serializers.ModelSerializer):
+    autorC = UsuarioSerializer(many=True, read_only=False)
     class Meta:
         model = Comentario
         fields = ('id', 'contenido', 'autorC')
