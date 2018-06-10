@@ -59,6 +59,7 @@ class EditUsuarioAPIView(ListAPIView):
         usuario = Usuario.objects.filter(pk=idUsuario)
         usuario.foto = foto
         usuario.nombre = nombre
+        usuario.save
         #usuarioE = Usuario.objects.filter(pk=idUsuario)
         #usuarioEE = usuarioE.first()
         return usuario
