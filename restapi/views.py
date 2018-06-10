@@ -46,6 +46,25 @@ class UserGetAPIView(ListAPIView):
         return User.objects.filter(pk=idUsuario)
 
 
+#restapi/api/api/editusuario
+class EditUsuarioAPIView(ListAPIView):
+    queryset = User.objects.all()
+    serializer_class = UsuarioSerializer
+
+    def get_queryset(self):
+        idUsuario = self.request.query_params.get('user', None)
+        foto = self.request.query_params_params.get('foto', None)
+        nombre = self.request.query_params_params.get('nombre', None)
+
+        usuario = Usuario.objects.filter(pk=idUsuario)
+        usuario.foto = foto
+        usuario.nombre = nombre
+        #usuarioE = Usuario.objects.filter(pk=idUsuario)
+        #usuarioEE = usuarioE.first()
+        return usuario
+        #return User.objects.filter(pk=idUsuario)
+
+
 class UserGetTokenAPIView(ListAPIView):
     queryset = User.objects.all()
     serializer_class = TokenSerializer
