@@ -12,7 +12,7 @@ django-filter==1.1.0
 django-heroku==0.3.1
 django-rest-auth==0.9.3
 django-rest-framework==0.1.0
-djangorestframework==3.8.2
+djangorestframework==3.9.1
 djangorestframework-jwt==1.11.0
 geographiclib==1.49
 geopy==1.13.0
